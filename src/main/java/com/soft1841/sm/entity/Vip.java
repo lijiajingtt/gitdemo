@@ -10,9 +10,7 @@ public class Vip {
     private Long Mobile;
     private Long vipNumber;
     private Long join_date;
-    public Vip(){
 
-    }
     public Vip(Long id, Long name, Long sex, Long Mobile, Long vipNumber, Long join_date){
      setId(id);
      setName(name);
