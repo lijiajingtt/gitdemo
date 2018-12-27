@@ -42,7 +42,4 @@ public class SellerController {
             alert.showAndWait();
         }
     }
-
-    public void sellerLogin(ActionEvent actionEvent) {
-    }
 }

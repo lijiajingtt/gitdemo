@@ -1,24 +1,27 @@
 package com.soft1841.sm.entity;
 
 
-
+import java.util.Date;
 
 public class Vip {
     private Long id;
-    private Long name;
-    private Long sex;
-    private Long Mobile;
-    private Long vipNumber;
-    private Long join_date;
+    private String name;
+    private String sex;
+    private String Mobile;
+    private String vipNumber;
+    private Date join_date;
 
-    public Vip(Long id, Long name, Long sex, Long Mobile, Long vipNumber, Long join_date){
-     setId(id);
-     setName(name);
-     setSex(sex);
-     setMobile(Mobile);
-     setVipNumber(vipNumber);
-     setJoin_date(join_date);
+    public Vip(Long id, String name, String vipNumber, String password) {
 
+    }
+
+    public Vip(Long id, String name, String sex, String Mobile, String vipNumber, Date join_date) {
+        this.id = id;
+        this.name = name;
+        this.sex = sex;
+        this.Mobile = Mobile;
+        this.vipNumber = vipNumber;
+        this.join_date = join_date;
     }
 
     public Long getId() {
@@ -29,43 +32,43 @@ public class Vip {
         this.id = id;
     }
 
-    public Long getName() {
+    public String getName() {
         return name;
     }
 
-    public void setName(Long name) {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public Long getSex() {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Long sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public Long getMobile() {
+    public String getMobile() {
         return Mobile;
     }
 
-    public void setMobile(Long mobile) {
+    public void setMobile(String mobile) {
         Mobile = mobile;
     }
 
-    public Long getVipNumber() {
+    public String getVipNumber() {
         return vipNumber;
     }
 
-    public void setVipNumber(Long vipNumber) {
+    public void setVipNumber(String vipNumber) {
         this.vipNumber = vipNumber;
     }
 
-    public Long getJoin_date() {
+    public Date getJoin_date() {
         return join_date;
     }
 
-    public void setJoin_date(Long join_date) {
+    public void setJoin_date(Date join_date) {
         this.join_date = join_date;
     }
 
@@ -73,10 +76,10 @@ public class Vip {
     public String toString() {
         return "Vip{" +
                 "id=" + id +
-                ", name=" + name +
-                ", sex=" + sex +
-                ", Mobile=" + Mobile +
-                ", vipNumber=" + vipNumber +
+                ", name='" + name + '\'' +
+                ", sex='" + sex + '\'' +
+                ", Mobile='" + Mobile + '\'' +
+                ", vipNumber='" + vipNumber + '\'' +
                 ", join_date=" + join_date +
                 '}';
     }

@@ -34,7 +34,4 @@ public class MainAdminController implements Initializable {
         mainContainer.getChildren().add(anchorPane);
 
     }
-
-    public void adminLogin(ActionEvent actionEvent) {
-    }
 }
