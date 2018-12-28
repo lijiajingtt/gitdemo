@@ -7,11 +7,26 @@ import java.util.List;
 
 public interface VipDAO {
     /**
-     * 根据工号查询收银员
-     * @param vipNumber
+     * 查询所有Vip信息
      * @return
      * @throws SQLException
      */
-    Vip getVipByNumber(String vipNumber) throws SQLException;
+    List<Vip> selectVip() throws SQLException;
+
+    /**
+     * 根据id删除实体
+     * @param id
+     * @return
+     * @throws SQLException
+     */
+    int deleteById(long id) throws SQLException;
+
+    /**
+     * 新增一个会员，返回自增主键
+     * @param vip
+     * @return
+     * @throws SQLException
+     */
+    long insertVip(Vip vip) throws SQLException;
 }
 

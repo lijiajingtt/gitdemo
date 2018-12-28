@@ -11,7 +11,7 @@ public class Vip {
     private String vipNumber;
     private Date join_date;
 
-    public Vip(Long id, String name, String vipNumber, String password) {
+    public Vip() {
 
     }
 
