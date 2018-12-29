@@ -8,9 +8,15 @@
 
 <?import javafx.scene.effect.Reflection?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.soft1841.sm.controller.SellerController">
+    <ImageView>
+        <Image url="/img/me.jpg">
+        </Image>
+    </ImageView>
     <Label text="收银系统"  fx:id="02"  AnchorPane.topAnchor="100" AnchorPane.leftAnchor="200">
         <effect>
             <Reflection bottomOpacity="0.2" fraction="0.5" topOffset="-5.0"/>
