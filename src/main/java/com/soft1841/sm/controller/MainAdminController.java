@@ -42,7 +42,7 @@ public class MainAdminController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
-    public  void  taobao() throws  Exception{
+    public  void  taobao () throws  Exception{
         Stage stage = new Stage();
         WebView webView = new WebView();
         WebEngine webEngine = webView.getEngine();
