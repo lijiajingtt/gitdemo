@@ -11,7 +11,7 @@
 <?import javafx.scene.image.Image?>
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.soft1841.sm.controller.MainAdminController">
+            fx:controller="com.soft1841.sm.controller.MainSellerController">
     <top>
         <AnchorPane prefHeight="80.0">
             <Label text="管理员: 李家劲" AnchorPane.rightAnchor="130" AnchorPane.topAnchor="20"/>
