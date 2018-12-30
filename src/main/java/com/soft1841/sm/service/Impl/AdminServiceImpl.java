@@ -10,10 +10,10 @@ import java.sql.SQLException;
 public class AdminServiceImpl implements AdminService {
     private AdminDAO adminDAO = DAOFactory.getAdminDAOInstance();
     @Override
-    public boolean login(String adminNumber, String password) {
+    public boolean login(String admin_number, String password) {
         Admin admin = null;
         try {
-            admin = adminDAO.getAdminByNumber(adminNumber);
+            admin = adminDAO.getAdminByNumber(admin_number);
         } catch (SQLException e) {
             e.printStackTrace();
         }

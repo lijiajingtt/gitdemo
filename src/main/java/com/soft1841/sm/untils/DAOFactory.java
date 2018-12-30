@@ -13,8 +13,13 @@ public class DAOFactory {
 
     public static TypeDAO getTypeDAOInstance() { return new TypeDAOImpl();
     }
+    public  static VipDAO getVipDAOInstance(){return  new VipDAOImpl();}
     public static GoodsDAO getGoodsDAOInstance(){
        return new GoodsDAOImpl();
+    }
+
+    public static SellerGoodsDAO getSellerGoodsDAOInstance() {
+        return new SellerGoodsDAOImpl();
     }
 }
 

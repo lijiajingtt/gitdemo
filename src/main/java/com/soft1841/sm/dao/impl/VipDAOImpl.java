@@ -3,7 +3,6 @@ package com.soft1841.sm.dao.impl;
 
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import cn.hutool.db.sql.Condition;
 import com.soft1841.sm.dao.VipDAO;
 import com.soft1841.sm.entity.Vip;
 
@@ -31,13 +30,13 @@ public class VipDAOImpl implements VipDAO {
     }
 
     @Override
-    public long insertVip(Vip vip) throws SQLException {
+    public Long insertVip(Vip vip) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_vip")
                 .set("name",vip.getName())
                 .set("sex",vip.getSex())
                 .set("mobile",vip.getMobile())
-                .set("vipNumber",vip.getVipNumber())
+                .set("vipNumber",vip.getVipnumber())
                 .set("join_date",vip.getJoin_date())
         );
     }
@@ -48,7 +47,7 @@ public class VipDAOImpl implements VipDAO {
         vip.setName(entity.getStr("name"));
         vip.setSex(entity.getStr("sex"));
         vip.setMobile(entity.getStr("mobile"));
-        vip.setVipNumber(entity.getStr("vip_number"));
+        vip.setVipnumber(entity.getStr("vipnumber"));
         vip.setJoin_date(entity.getDate("join_date"));
         return vip;
     }

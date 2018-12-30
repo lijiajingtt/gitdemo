@@ -23,14 +23,14 @@ public class AdminController {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("提示");
         if (flag) {
-            alert.setContentText("登录成功！");
+            alert.setContentText("登录成功,欢迎进入666后台管理~");
             alert.showAndWait();
             Stage mainStage = new Stage();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/main.fxml"));
             BorderPane root = fxmlLoader.load();
             Scene scene =  new Scene(root);
+            scene.getStylesheets().addAll("/css/style.css");
             mainStage.setTitle("超市管理系统");
-            mainStage.setMaximized(true);
             mainStage.setMaximized(true);
             mainStage.setScene(scene);
             mainStage.show();

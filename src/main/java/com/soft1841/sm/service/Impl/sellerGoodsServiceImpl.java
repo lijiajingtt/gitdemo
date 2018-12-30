@@ -1,4 +1,24 @@
 package com.soft1841.sm.service.Impl;
+import com.soft1841.sm.dao.SellerGoodsDAO;
+import com.soft1841.sm.entity.Goods;
+import com.soft1841.sm.service.SellerGoodsService;
+import com.soft1841.sm.untils.DAOFactory;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class sellerGoodsServiceImpl {
+public class SellerGoodsServiceImpl implements SellerGoodsService {
+    private SellerGoodsDAO sellerGoodsDAO = DAOFactory.getSellerGoodsDAOInstance();
+
+
+    @Override
+    public List<Goods> getAllGoods() {
+        List<Goods> goodsList = new ArrayList<>();
+        try {
+            goodsList = sellerGoodsDAO.getAllGoods();
+        } catch (SQLException e) {
+            System.err.println("查询所有商品出现异常");
+        }
+        return goodsList;
+    }
 }

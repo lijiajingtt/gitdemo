@@ -10,16 +10,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SellerGoodsDAOImpl implements SellerGoodsDAO {
+
     @Override
     public List<Goods> getAllGoods() throws SQLException {
-        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods ");
+        List<Entity> entityList = Db.use().query("SELECT * FROM t_goods");
         List<Goods> goodsList = new ArrayList<>();
         for (Entity entity : entityList) {
             goodsList.add(convertGoods(entity));
         }
         return goodsList;
     }
-    private Goods convertGoods(Entity entity){
+    private Goods convertGoods(Entity entity) {
         Goods goods = new Goods();
         goods.setId(entity.getLong("id"));
         goods.setTypeId(entity.getLong("type_id"));
@@ -31,4 +32,3 @@ public class SellerGoodsDAOImpl implements SellerGoodsDAO {
         return goods;
     }
 }
-

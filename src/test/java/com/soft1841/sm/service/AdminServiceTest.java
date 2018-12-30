@@ -9,7 +9,7 @@ public class AdminServiceTest {
 private AdminService adminService = ServiceFactory.getAdminServiceInstance();
     @Test
     public void login() {
-        boolean flag = adminService.login("000001","111");
+        boolean flag = adminService.login("1","111");
         System.out.println(flag);
     }
 }

@@ -23,7 +23,7 @@ public class VipServiceImpl implements VipService {
     }
 
     @Override
-    public long addVip(Vip vip) {
+    public Long addVip(Vip vip) {
         long result = 0;
         try {
             result =vipDAO.insertVip(vip);

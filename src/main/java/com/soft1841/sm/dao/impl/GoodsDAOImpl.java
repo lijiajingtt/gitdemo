@@ -1,5 +1,4 @@
 package com.soft1841.sm.dao.impl;
-
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
 import cn.hutool.db.sql.Condition;
@@ -13,7 +12,7 @@ import java.util.List;
 public class GoodsDAOImpl implements GoodsDAO {
     @Override
     public Long insertGoods(Goods goods) throws SQLException {
-        return  Db.use().insertForGeneratedKey(
+        return Db.use().insertForGeneratedKey(
                 Entity.create("t_goods")
                         .set("type_id", goods.getTypeId())
                         .set("barcode", goods.getBarCode())
@@ -74,7 +73,6 @@ public class GoodsDAOImpl implements GoodsDAO {
         }
         return goodsList;
     }
-
     @Override
     public int countByType(long typeId) throws SQLException {
         return Db.use().queryNumber("SELECT COUNT(*) FROM t_goods WHERE type_id = ? ", typeId).intValue();

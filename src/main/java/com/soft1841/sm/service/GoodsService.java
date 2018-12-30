@@ -63,5 +63,4 @@ public interface GoodsService {
      * @return
      */
     int countByType(long typeId);
-
 }

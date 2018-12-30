@@ -22,7 +22,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-
 import java.net.URL;
 import java.util.List;
 import java.util.Optional;
@@ -56,7 +55,6 @@ public class GoodsController implements Initializable {
 
     /**
      * 初始化方法，通过调用对图书表格和列表下拉框的两个封装方法，实现数据初始化
-     *
      * @param location
      * @param resources
      */
@@ -70,11 +68,10 @@ public class GoodsController implements Initializable {
         goodsTable.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         goodsList = goodsService.getAllGoods();
         showGoodsData(goodsList);
-        editCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>());
+        editCol.setCellValueFactory(param -> new ReadOnlyObjectWrapper<>(param.getValue()));
         editCol.setCellFactory(param -> new TableCell<Goods, Goods>() {
             //通过ComponentUtil工具类的静态方法，传入按钮文字和样式，获得一个按钮对象
             private final Button editButton = ComponentUntil.getButton("编辑", "blue-theme");
-
             @Override
             protected void updateItem(Goods goods, boolean empty) {
                 super.updateItem(goods, empty);

@@ -13,7 +13,7 @@ public class AdminDAOTest {
 private AdminDAO adminDAO = DAOFactory.getAdminDAOInstance();
     @Test
     public void getAdminByNumber() throws SQLException {
-        Admin admin = adminDAO.getAdminByNumber("000001");
+        Admin admin = adminDAO.getAdminByNumber("1");
         System.out.println(admin);
     }
 }

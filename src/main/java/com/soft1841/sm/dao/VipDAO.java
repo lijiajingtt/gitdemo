@@ -27,6 +27,6 @@ public interface VipDAO {
      * @return
      * @throws SQLException
      */
-    long insertVip(Vip vip) throws SQLException;
+    Long insertVip(Vip vip) throws SQLException;
 }
 

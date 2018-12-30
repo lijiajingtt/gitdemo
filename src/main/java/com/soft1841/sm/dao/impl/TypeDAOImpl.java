@@ -25,11 +25,11 @@ public class TypeDAOImpl implements TypeDAO {
     @Override
     public List<Type> selectAllTypes() throws SQLException {
         //查询得到List<Entity>
-        List<Entity> entityList = Db.use().query("SELECT * FROM t_type ");
+        List<Entity> entityList =  Db.use().query("SELECT * FROM t_type ");
         //创建一个List<Type>，存放具体的图书类别
         List<Type> typeList = new ArrayList<>();
         //遍历entityList，转换为typeList
-        for (Entity entity : entityList) {
+        for (Entity entity:entityList) {
             typeList.add(convertType(entity));
         }
         return typeList;

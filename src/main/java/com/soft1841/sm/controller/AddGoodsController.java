@@ -14,7 +14,6 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -72,8 +71,5 @@ public class AddGoodsController implements Initializable {
         alert.showAndWait();
         Stage stage = (Stage) goodsName.getScene().getWindow();
         stage.close();
-
-
-
     }
 }

@@ -7,10 +7,10 @@ import java.sql.SQLException;
 public interface AdminDAO {
     /**
      * 根据工号查询收银员
-     * @param adminNumber
+     * @param admin_number
      * @return
      * @throws SQLException
      */
-    Admin getAdminByNumber(String adminNumber)throws SQLException;
+    Admin getAdminByNumber(String admin_number)throws SQLException;
 
 }

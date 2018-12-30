@@ -5,13 +5,32 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
+
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.soft1841.sm.controller.AdminController">
-<ImageView>
-<Image url="/img/bg1.jpg"/>
-</ImageView>
+            fx:controller="com.soft1841.sm.controller.MainAdminController">
+    <TitledPane styleClass="gray-theme" text="今日商品选购" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="100">
+        <VBox spacing="20">
+            <Button fx:id="5" styleClass="btn-radius-large" text="百度" onAction="#web" prefHeight="30" prefWidth="200"/>
+            <Button fx:id="6" styleClass="btn-radius-large" text="淘宝" onAction="#taobao" prefHeight="30"
+                    prefWidth="200"/>
+            <Button fx:id="7" styleClass="btn-radius-large" text="京东" onAction="#jingdong" prefHeight="30"
+                    prefWidth="200"/>
+        </VBox>
+    </TitledPane>
+
+    <TitledPane styleClass="gray-theme" text="系统设置" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="370">
+        <VBox>
+            <Button text="数据备份" fx:id="9" styleClass="btn-radius-large" prefHeight="30" prefWidth="200"/>
+        </VBox>
+
+    </TitledPane>
+
+    <Label text="今日天气：" AnchorPane.rightAnchor="60" AnchorPane.topAnchor="45"/>
+
+    <ImageView AnchorPane.leftAnchor="200">
+        <Image url="/img/超市.jpg"/>
+    </ImageView>
 </AnchorPane>
