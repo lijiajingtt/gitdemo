@@ -32,8 +32,6 @@
     <Button  styleClass="btn-radius-large" text="登录"  onAction="#adminLogin" AnchorPane.topAnchor="330"
              AnchorPane.leftAnchor="200"  prefWidth="200" fx:id="01"/>
     <Label text="联系我们" AnchorPane.rightAnchor="60" AnchorPane.bottomAnchor="190"/>
-
-
     <ImageView fitHeight="150" fitWidth="150" AnchorPane.bottomAnchor="30" AnchorPane.rightAnchor="30">
         <Image url="/img/WX.jpg"/>
     </ImageView>

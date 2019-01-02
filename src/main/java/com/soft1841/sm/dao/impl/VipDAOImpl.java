@@ -11,12 +11,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class VipDAOImpl implements VipDAO {
-
     @Override
     public List<Vip> selectVip() throws SQLException {
         List<Entity> entityList = Db.use().query("SELECT * FROM t_vip");
         List<Vip> vipList = new ArrayList<>();
-        for (Entity entity: entityList){
+        for (Entity entity: entityList) {
             vipList.add(convertVip(entity));
         }
         return vipList;
@@ -25,7 +24,7 @@ public class VipDAOImpl implements VipDAO {
     @Override
     public int deleteById(long id) throws SQLException {
         return Db.use().del(
-                Entity.create("t_vip").set("id",id)
+                Entity.create("t_vip").set("id", id)
         );
     }
 
@@ -33,22 +32,27 @@ public class VipDAOImpl implements VipDAO {
     public Long insertVip(Vip vip) throws SQLException {
         return Db.use().insertForGeneratedKey(
                 Entity.create("t_vip")
-                .set("name",vip.getName())
-                .set("sex",vip.getSex())
-                .set("mobile",vip.getMobile())
-                .set("vipNumber",vip.getVipnumber())
-                .set("join_date",vip.getJoin_date())
+                        .set("name", vip.getName())
+                        .set("sex", vip.getSex())
+                        .set("mobile", vip.getMobile())
+                        .set("vipnumber", vip.getVipnumber())
         );
     }
 
-    private Vip convertVip(Entity entity){
+    /**
+     * 将Entity转换为Vip
+     *
+     * @param entity
+     * @return Vip
+     */
+
+    private Vip convertVip(Entity entity) {
         Vip vip = new Vip();
         vip.setId(entity.getLong("id"));
         vip.setName(entity.getStr("name"));
         vip.setSex(entity.getStr("sex"));
         vip.setMobile(entity.getStr("mobile"));
-        vip.setVipnumber(entity.getStr("vipnumber"));
-        vip.setJoin_date(entity.getDate("join_date"));
+        vip.setVipnumber(entity.getStr("vip_number"));
         return vip;
     }
 }

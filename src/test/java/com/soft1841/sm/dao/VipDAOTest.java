@@ -23,7 +23,6 @@ public class VipDAOTest {
         }
         vipList.forEach(Entity -> System.out.println(Entity));
     }
-
     @Test
     public void deleteById() {
         try {
@@ -34,6 +33,12 @@ public class VipDAOTest {
     }
 
     @Test
-    public void insertVip() {
+    public void insertVip() throws SQLException {
+        Vip vip = new Vip();
+        vip.setName("ceshi");
+        vip.setMobile("11111111");
+        vip.setVipnumber("111");
+        vip.setSex("男");
+        vipDAO.insertVip(vip);
     }
 }

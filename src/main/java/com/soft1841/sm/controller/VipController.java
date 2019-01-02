@@ -24,17 +24,94 @@ import java.time.LocalDate;
 import java.util.*;
 
 public class VipController implements Initializable {
-    @FXML
-    private FlowPane vipPane;
     private VipService vipService = ServiceFactory.getVipDAOInstance();
     private List<Vip> vipList = new ArrayList<>();
-
+    @FXML
+    private FlowPane vipPane;
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         vipList = vipService.getAllVip();
         showVip(vipList);
     }
-
+    //新增会员方法
+    public  void  addVip(){
+        Vip vip = new Vip();
+        Stage stage = new Stage();
+        stage.setTitle("新增会员界面");
+        //一个垂直布局 放各种组件
+        VBox vBox = new VBox();
+        vBox.setSpacing(10);
+        vBox.setPadding(new Insets(10,10,10,10));
+        Label infoLabel = new Label("请输入会员信息：");
+        infoLabel.setPrefWidth(600);
+        infoLabel.setMinHeight(60);
+        infoLabel.setAlignment(Pos.CENTER);
+        infoLabel.getStyleClass().addAll("gray-theme","font-title");
+        TextField nameLabel = new TextField();
+        nameLabel.setPromptText("请输入姓名");
+        TextField mobileLabel = new TextField();
+        mobileLabel.setPromptText("请输入手机号");
+        TextField numberLabel = new TextField();
+        numberLabel.setPromptText("请输入会员号");
+        //性别选项
+        HBox roleBox = new HBox();
+        roleBox.setSpacing(20);
+        ToggleGroup group = new ToggleGroup();
+        RadioButton manButton = new RadioButton("男");
+        manButton.setToggleGroup(group);
+        manButton.setSelected(true);
+        manButton.setUserData("男");
+        RadioButton womenButton = new RadioButton("女");
+        womenButton.setToggleGroup(group);
+        womenButton.setUserData("女");
+        roleBox.getChildren().addAll(manButton,womenButton);
+        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
+            @Override
+            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
+                //设置选中的性别
+                System.out.println(group.getSelectedToggle().getUserData().toString());
+                vip.setSex(group.getSelectedToggle().getUserData().toString());
+            }
+        });
+        DatePicker datePicker = new DatePicker();
+        datePicker.setValue(LocalDate.now());
+        //新增按钮
+        FlowPane flowPane = new FlowPane();
+        Button addBtn =  new Button("新增");
+        addBtn.setPrefWidth(150);
+        addBtn.setAlignment(Pos.BOTTOM_CENTER);
+        addBtn.getStyleClass().addAll("gray-theme" , "btn-radius");
+        flowPane.getChildren().add(addBtn);
+        flowPane.setAlignment(Pos.CENTER);
+        vBox.getChildren().addAll(infoLabel,nameLabel,mobileLabel,numberLabel,roleBox,datePicker,addBtn);
+        Scene scene =  new Scene(vBox ,450,400);
+        scene.getStylesheets().add("css/style.css");
+        stage.setScene(scene);
+        stage.show();
+        //点击增加 ,写入数据库
+        addBtn.setOnAction(event -> {
+            String nameString =  nameLabel.getText().trim();
+            String mobileString =  mobileLabel.getText().trim();
+            String numberString =  numberLabel.getText().trim();
+            String dateString =  datePicker.getEditor().getText();
+            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+            Date joinDate = null;
+            try {
+                joinDate = df.parse(dateString);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+            vip.setName(nameString);
+            vip.setVipnumber(numberString);
+            vip.setMobile(mobileString);
+            System.out.println(vip.getName()+vip.getSex()+vip.getMobile());
+            vipService.addVip(vip);
+            stage.close();
+            //重新读取数据
+            vipList = vipService.getAllVip();
+            showVip(vipList);
+        });
+    }
     private void showVip(List<Vip> vipList) {
         //移除之前的记录
         vipPane.getChildren().clear();
@@ -51,10 +128,9 @@ public class VipController implements Initializable {
             Label sexLabel = new Label(vip.getSex());
             Label mobileLabel = new Label(vip.getMobile());
             Label numberLabel = new Label(vip.getVipnumber());
-            Label dateLabel = new Label(vip.getJoin_date().toString());
             Button delBtn = new Button("删除");
             delBtn.getStyleClass().add("warning-theme");
-            rightBox.getChildren().addAll(nameLabel, sexLabel, mobileLabel, numberLabel, dateLabel);
+            rightBox.getChildren().addAll(nameLabel, sexLabel, mobileLabel, numberLabel);
             hBox.getChildren().addAll(rightBox);
             vipPane.getChildren().add(hBox);
             //删除按钮事件
@@ -74,84 +150,7 @@ public class VipController implements Initializable {
         }
     }
 
-    //新增会员方法
-    public void addVip() {
-        Vip vip = new Vip();
-        Stage stage = new Stage();
-        stage.setTitle("新增会员界面");
-        //一个垂直布局 放各种组件
-        VBox vBox = new VBox();
-        vBox.setSpacing(10);
-        vBox.setPadding(new Insets(10, 10, 10, 10));
-        Label infoLabel = new Label("请输入会员信息：");
-        infoLabel.setPrefWidth(600);
-        infoLabel.setMinHeight(60);
-        infoLabel.setAlignment(Pos.CENTER);
-        infoLabel.getStyleClass().addAll("gray-theme", "font-title");
-        TextField nameLabel = new TextField();
-        nameLabel.setPromptText("请输入姓名");
-        TextField mobileLabel = new TextField();
-        mobileLabel.setPromptText("请输入手机号");
-        TextField numberLabel = new TextField();
-        numberLabel.setPromptText("请输入会员号");
-        //性别选项
-        HBox roleBox = new HBox();
-        roleBox.setSpacing(20);
-        ToggleGroup group = new ToggleGroup();
-        RadioButton manButton = new RadioButton("男");
-        manButton.setToggleGroup(group);
-        manButton.setSelected(true);
-        manButton.setUserData("男");
-        RadioButton womenButton = new RadioButton("女");
-        womenButton.setToggleGroup(group);
-        womenButton.setUserData("女");
-        roleBox.getChildren().addAll(manButton, womenButton);
-        group.selectedToggleProperty().addListener(new ChangeListener<Toggle>() {
-            @Override
-            public void changed(ObservableValue<? extends Toggle> observable, Toggle oldValue, Toggle newValue) {
-                //设置选中的性别
-                System.out.println(group.getSelectedToggle().getUserData().toString());
-                vip.setSex(group.getSelectedToggle().getUserData().toString());
-            }
-        });
-        DatePicker datePicker = new DatePicker();
-        datePicker.setValue(LocalDate.now());
-        //新增按钮
-        FlowPane flowPane = new FlowPane();
-        Button addBtn = new Button("新增");
-        addBtn.setPrefWidth(120);
-        addBtn.getStyleClass().addAll("gray-theme", "btn-radius");
-        flowPane.getChildren().add(addBtn);
-        flowPane.setAlignment(Pos.CENTER);
-        vBox.getChildren().addAll(infoLabel, nameLabel, mobileLabel, numberLabel, roleBox, datePicker);
-        Scene scene = new Scene(vBox, 450, 400);
-        scene.getStylesheets().add("css/style.css");
-        stage.setScene(scene);
-        stage.show();
-        //点击增加 写入数据库
-        addBtn.setOnAction(event -> {
-            String nameString = nameLabel.getText().trim();
-            String mobileString = mobileLabel.getText().trim();
-            String numberString = numberLabel.getText().trim();
-            String dateString = datePicker.getEditor().getText();
-            DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-            Date join_date = null;
-            try {
-                join_date = df.parse(dateString);
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-            vip.setName(nameString);
-            vip.setVipnumber(numberString);
-            vip.setMobile(mobileString);
-            System.out.println(vip.getName() + vip.getSex() + vip.getMobile());
-            vipService.addVip(vip);
-            stage.close();
-            //重新读取数据
-            vipList = vipService.getAllVip();
-            showVip(vipList);
-        });
-    }
+
 }
 
 

@@ -1,5 +1,6 @@
 package com.soft1841.sm.service;
 
+import cn.hutool.db.Entity;
 import com.soft1841.sm.dao.VipDAO;
 import com.soft1841.sm.entity.Vip;
 import com.soft1841.sm.untils.DAOFactory;
@@ -25,6 +26,16 @@ public class VipServiceTest {
 
     @Test
     public void addVip() {
+        Vip vip = new Vip();
+        vip.setName("ceshi11");
+        vip.setMobile("11111111");
+        vip.setVipnumber("111");
+        vip.setSex("男");
+        try {
+            vipDAO.insertVip(vip);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Test

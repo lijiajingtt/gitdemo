@@ -4,28 +4,26 @@ package com.soft1841.sm.entity;
 import java.util.Date;
 
 public class Vip {
-    private Long id;
+    private long id;
     private String name;
     private String sex;
     private String Mobile;
     private String vipnumber;
-    private Date join_date;
+
 
     public Vip() {
 
     }
 
-    public Vip(Long id, String name, String sex, String mobile, String vipnumber, Date join_date) {
+    public Vip(long id, String name, String sex, String mobile, String vipnumber) {
         this.id = id;
         this.name = name;
         this.sex = sex;
         this.Mobile = mobile;
         this.vipnumber = vipnumber;
-        this.join_date = join_date;
-
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
@@ -65,15 +63,6 @@ public class Vip {
         this.vipnumber = vipnumber;
     }
 
-    public Date getJoin_date() {
-        return join_date;
-    }
-
-    public void setJoin_date(Date join_date) {
-        this.join_date = join_date;
-
-    }
-
     @Override
     public String toString() {
         return "Vip{" +
@@ -82,7 +71,6 @@ public class Vip {
                 ", sex='" + sex + '\'' +
                 ", Mobile='" + Mobile + '\'' +
                 ", vipnumber='" + vipnumber + '\'' +
-                ", join_date=" + join_date +
                 '}';
     }
 }
