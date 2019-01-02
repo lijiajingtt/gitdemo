@@ -17,7 +17,7 @@
         <Image url="/img/1.jpg">
         </Image>
     </ImageView>
-    <Label text="超市管理系统"  fx:id="02"  AnchorPane.topAnchor="80" AnchorPane.leftAnchor="120">
+    <Label text="超市管理系统"  fx:id="02"  AnchorPane.topAnchor="80" AnchorPane.leftAnchor="550">
         <effect>
             <Reflection bottomOpacity="100" fraction="0.8" topOffset="0.4"/>
         </effect>
@@ -25,14 +25,14 @@
             <Font name="System Bold" size="44.0"/>
         </font>
     </Label>
-    <Label text="用 户 名" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="80" />
-    <TextField styleClass="btn-radius-normal" promptText="admin" fx:id="user" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="170"/>
-    <Label text="密     码" AnchorPane.topAnchor="255" AnchorPane.leftAnchor="80"/>
-    <PasswordField  styleClass="btn-radius-normal" promptText="password" fx:id="password" AnchorPane.topAnchor="250" AnchorPane.leftAnchor="170"/>
-    <Button  styleClass="btn-radius-large" text="登录"  onAction="#adminLogin" AnchorPane.topAnchor="330"
-             AnchorPane.leftAnchor="200"  prefWidth="200" fx:id="01"/>
-    <Label text="联系我们" AnchorPane.rightAnchor="60" AnchorPane.bottomAnchor="190"/>
-    <ImageView fitHeight="150" fitWidth="150" AnchorPane.bottomAnchor="30" AnchorPane.rightAnchor="30">
+    <Label text="用 户 名" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="500" />
+    <TextField styleClass="btn-radius-normal" promptText="admin" fx:id="user" AnchorPane.topAnchor="200" AnchorPane.leftAnchor="550"/>
+    <Label text="密     码" AnchorPane.topAnchor="255" AnchorPane.leftAnchor="500"/>
+    <PasswordField  styleClass="btn-radius-normal" promptText="password" fx:id="password" AnchorPane.topAnchor="250" AnchorPane.leftAnchor="550"/>
+    <Button  styleClass="btn-radius-large" text="登录" style="-fx-background-color: #33ccff;"   onAction="#adminLogin" AnchorPane.topAnchor="330"
+             AnchorPane.leftAnchor="550"  prefWidth="100" fx:id="01"/>
+    <Label text="联系我们" AnchorPane.rightAnchor="100" AnchorPane.bottomAnchor="290"/>
+    <ImageView fitHeight="150" fitWidth="150" AnchorPane.bottomAnchor="60" AnchorPane.rightAnchor="40">
         <Image url="/img/WX.jpg"/>
     </ImageView>
 </AnchorPane>
